@@ -14,64 +14,59 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-
 public class JsonClass {
-	
-	//HighscoresActivity highScoresAcitivity;
+
+	// HighscoresActivity highScoresAcitivity;
 	boolean fetchFailed = false;
-	
-	public JsonClass()
-	{
-		//this.highScoresAcitivity = hs;
-		//Get the data (see above)
+
+	public JsonClass() {
+		// this.highScoresAcitivity = hs;
+		// Get the data (see above)
 	}
-	
-	public List<String[]> getScores() throws Exception
-	{
+
+	public List<String[]> getScores() throws Exception {
 		JSONObject json = getJSONfromURL(SendScore.scoresURL);
 		JSONArray resultsJSON = json.getJSONArray("results");
-		
+
 		List<String[]> resultsList = new ArrayList<String[]>();
-		
-		for(int x = 0; x < resultsJSON.length(); x++ )
-		{
+
+		for (int x = 0; x < resultsJSON.length(); x++) {
 			String[] singleRow = new String[2];
 			singleRow[0] = resultsJSON.getJSONObject(x).getString("name");
 			singleRow[1] = resultsJSON.getJSONObject(x).getString("time");
 			resultsList.add(singleRow);
 		}
-		
+
 		return resultsList;
-		
+
 	}
-	
-	
-	public JSONObject getJSONfromURL(String url) throws Exception
-	{
-		//initialize
+
+	public JSONObject getJSONfromURL(String url) throws Exception {
+		// initialize
 		InputStream is = null;
 		String result = "";
 		JSONObject jArray = null;
 
-		//http post
-			HttpClient httpclient = new DefaultHttpClient();
-			HttpPost httppost = new HttpPost(url);
-			HttpResponse response = httpclient.execute(httppost);
-			HttpEntity entity = response.getEntity();
-			is = entity.getContent();
+		// http post
+		HttpClient httpclient = new DefaultHttpClient();
+		HttpPost httppost = new HttpPost(url);
+		HttpResponse response = httpclient.execute(httppost);
+		HttpEntity entity = response.getEntity();
+		is = entity.getContent();
 
-		//convert response to string
-			BufferedReader reader = new BufferedReader(new InputStreamReader(is,"iso-8859-1"),8);
-			StringBuilder sb = new StringBuilder();
-			String line = null;
-			while ((line = reader.readLine()) != null) {
-				sb.append(line + "\n");
-			}
-			is.close();
-			result=sb.toString();
+		// convert response to string
+		BufferedReader reader = new BufferedReader(new InputStreamReader(is,
+				"iso-8859-1"), 8);
+		StringBuilder sb = new StringBuilder();
+		String line = null;
+		while ((line = reader.readLine()) != null) {
+			sb.append(line + "\n");
+		}
+		is.close();
+		result = sb.toString();
 
-		//try parse the string to a JSON object
-	        	jArray = new JSONObject(result);
+		// try parse the string to a JSON object
+		jArray = new JSONObject(result);
 
 		return jArray;
 	}

@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 public class Ball {
-	
+
 	private float currentX;
 	private float currentY;
 	private float previousX = 0;
@@ -20,13 +20,17 @@ public class Ball {
 	private static final int EASY = 0;
 	private static final int NORMAL = 1;
 	private static final int HARD = 2;
-	
-	public Ball(GameView v)
-	{
+
+	public Ball(GameView v) {
 		this.gameView = v;
-		this.img = BitmapFactory.decodeResource(v.getContext().getResources(),
-				v.getContext().getResources().getIdentifier("ball", "drawable", v.getContext().getPackageName()));
-		this.img = Bitmap.createScaledBitmap(this.img, v.getWidth() / 25, v.getWidth() / 25 , false);
+		this.img = BitmapFactory.decodeResource(
+				v.getContext().getResources(),
+				v.getContext()
+						.getResources()
+						.getIdentifier("ball", "drawable",
+								v.getContext().getPackageName()));
+		this.img = Bitmap.createScaledBitmap(this.img, v.getWidth() / 25,
+				v.getWidth() / 25, false);
 		this.width = this.img.getWidth();
 		this.height = this.img.getHeight();
 		this.radius = this.width / 2;
@@ -34,7 +38,6 @@ public class Ball {
 		this.currentY = v.getHeight() / 2;
 		this.setSpeed();
 	}
-	
 
 	public float getCurrentX() {
 		return currentX;
@@ -64,8 +67,7 @@ public class Ball {
 		return radius;
 	}
 
-	public double getSpeed() 
-	{
+	public double getSpeed() {
 		return speed;
 	}
 
@@ -109,16 +111,14 @@ public class Ball {
 		this.radius = radius;
 	}
 
-	private void setSpeed() 
-	{
-		switch(gameView.getDifficultyLevel())
-		{
-			case EASY:
-				speed *= 0.75;
-			case NORMAL:
-				break;
-			case HARD:
-				speed *= 1.5;
+	private void setSpeed() {
+		switch (gameView.getDifficultyLevel()) {
+		case EASY:
+			speed *= 0.75;
+		case NORMAL:
+			break;
+		case HARD:
+			speed *= 1.5;
 		}
 	}
 
