@@ -7,6 +7,8 @@ This is the well known brick-breaker game developed for android. I made this gam
 
 The full documentation pdfs along with the UML diagrams can be found in `/Documentation`  directory.
 
+The directory `/dx-ball` contains the raw game resources. i.e: imags, psd files, etc
+
 You can try the game by downloading it from [Google Play](https://play.google.com/store/apps/details?id=ccit.adel.brickgame&hl=en).
 
 
