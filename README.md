@@ -11,3 +11,8 @@ You can try the game by downloading it from [Google Play](https://play.google.co
 
 
 
+License
+-------
+
+
+####GNU GPL v2.0
