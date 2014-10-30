@@ -15,4 +15,4 @@ License
 -------
 
 
-####GNU GPL v2.0
+**GNU GPL v2.0**
