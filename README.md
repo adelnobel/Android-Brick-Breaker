@@ -11,6 +11,7 @@ The directory `/dx-ball` contains the raw game resources. i.e: imags, psd files,
 
 You can try the game by downloading the apk from the APK folder.
 
+You can check the [user guide here](Documentation/Brick%20Breaker%20Game%20user%20guide.pdf) 
 
 
 License
