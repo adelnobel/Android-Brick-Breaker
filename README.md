@@ -9,7 +9,7 @@ The full documentation pdfs along with the UML diagrams can be found in `/Docume
 
 The directory `/dx-ball` contains the raw game resources. i.e: imags, psd files, etc
 
-You can try the game by downloading it from [Google Play](https://play.google.com/store/apps/details?id=ccit.adel.brickgame&hl=en).
+You can try the game by downloading the apk from the APK folder.
 
 
 
